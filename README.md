@@ -55,7 +55,7 @@ Step to use Api:- In the APi's we are using the Authentication using JWT, So fir
 
 # NOTE :- Please do refer to swagger-ui for particular API's Payloads. Otherwise it will through an error.
 
-for run swagger:- http://localhost:4000/api-docs 
+for run swagger:- {BASE_URL}/api-docs 
 
 API ENDPOINTS
 1. POST /api/user/register: Create a new user.
