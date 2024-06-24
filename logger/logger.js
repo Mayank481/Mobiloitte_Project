@@ -12,7 +12,7 @@ const logger = createLogger({
     new transports.Console({
       format: combine(colorize(), myFormat),
     }),
-    new transports.File({ filename: "./logger/Success.log", level: "info" }),
+    new transports.File({ filename: "./logger/success.log", level: "info" }),
     new transports.File({ filename: "./logger/error.log", level: "error" }),
   ],
 });

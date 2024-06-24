@@ -4,3 +4,5 @@ npm-debug.log
 .env
 .DS_Store
 mayank.pem
+./logger/success.log
+./logger/error.log
