@@ -6,6 +6,7 @@ const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 const PORT = process.env.PORT || 4000;
 const { swaggerServe, swaggerSetup } = require("./Swagger/swagger");
+const logger = require("./logger/logger");
 
 const connectDatabase = require("./config/database");
 
@@ -54,5 +55,5 @@ app.use("/api", require("./routes"));
 app.use("/api-docs", swaggerServe, swaggerSetup);
 
 app.listen(PORT, () => {
-  console.log(`server is running on http://localhost:${PORT}`);
+  logger.info(`server is running on http://localhost:${PORT}`);
 });
