@@ -1,0 +1,16 @@
+version: '3'
+services:
+  assigment:
+    build: .
+    ports:
+      - "4000:4000"
+    networks:
+      - my-network
+    environment:
+      DB_URI: ${DB_URI}
+      PORT: ${PORT}
+      JWT_SECRET: ${JWT_SECRET}
+
+networks:
+  my-network:
+    driver: bridge
