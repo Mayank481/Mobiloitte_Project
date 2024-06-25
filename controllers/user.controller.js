@@ -1,7 +1,8 @@
-require("dotenv").config();
 const userdata = require("../models/user.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const logger = require("../logger/logger");
+const { redisSet } = require("../helpers");
 
 module.exports.signUp = async (req, res) => {
   try {
@@ -91,12 +92,17 @@ module.exports.fetchUserById = async (req, res) => {
   try {
     const user_id = req.params.id;
     const user = await userdata.findById(user_id);
+    if (user) {
+      await redisSet(user);
+      logger.info("cache User data fetch Successfully");
+    }
+    logger.info("User Data Successfully");
     return res.status(200).json({
       message: "User fetch Successfully :)",
       data: user,
     });
   } catch (error) {
-    console.log(error);
+    logger.error(error);
     return res.status(500).json({
       message: "Something wants wrong :(",
     });
