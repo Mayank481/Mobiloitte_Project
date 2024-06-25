@@ -21,10 +21,6 @@ Deployment: Ready for deployment on AWS infrastructure using Docker.
 4. Aws Account for deploy 
 5. GIT Bash
 
-### Installation
-1. Cloning the repository from Github.
-2. Docker installation
-
 ### Quick Start
 A simple example to get started with the project.
 1. Cloning repository from GITHUB
@@ -32,6 +28,12 @@ A simple example to get started with the project.
 ```
 npm i
 ```
+3. Open docker desktop and start docker engine 
+4. Now on Vs-code run some following commands 
+```
+1. docker login
+2. docker run -d --name redis-stack -p 6379:6379 -p 8001:8001 redis/redis-stack:latest
+``` 
 3. Create a .ENV (Inside ENV)
 `````
 PORT = 4000
@@ -65,7 +67,20 @@ API ENDPOINTS
 4. DELETE /api/user/deleteuser/:id : Delete a user.
 5. GET /api/user/users: List all users with pagination support.
 
+## Redis
+
+Redis is a caching services which allow us to optimize our application in retrieval of data. It enhances a time complexity an make our application faster.
+
+## How to use
+1. As redis server is not supported on windows so we are using docker image and utilize redis feature in our application. Therefore to use redis in this project we have to start docker image first.
+
+## command 
+'''docker run -d --name redis-stack -p 6379:6379 -p 8001:8001 redis/redis-stack:latest''' 
+
+
 ## AWS Deployment
+
+Amazon Web Services, Inc. (AWS) is a subsidiary of Amazon that provides on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered, pay-as-you-go basis.
 
 1. Creating AWS EC2 Instance:
    1. Log in to your AWS Management Console.

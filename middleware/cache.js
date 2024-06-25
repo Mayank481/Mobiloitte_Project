@@ -1,8 +1,5 @@
 const { Redis } = require("ioredis");
-const redisClient = new Redis({
-  host: "redis-stack",
-  port: 6379,
-});
+const redisClient = new Redis();
 const logger = require("../logger/logger");
 
 const cache = async (req, res, next) => {
