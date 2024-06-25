@@ -1,4 +1,5 @@
 const Joi = require("joi");
+const logger = require("../logger/logger");
 
 const registerschema = Joi.object({
   firstName: Joi.string().alphanum().min(3).max(30).required(),
@@ -12,7 +13,8 @@ const registerschema = Joi.object({
     .required()
     .messages({
       "string.pattern.base": "Phone number must be a valid 10-digit number",
-    }).required(),
+    })
+    .required(),
 });
 
 const loginSchema = Joi.object({
@@ -25,19 +27,16 @@ const updateUserSchema = Joi.object({
   lastName: Joi.string().alphanum().min(3).max(30),
   email: Joi.string().email(),
   password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")),
-  phoneNumber: Joi.number()
-    .integer()
-    .min(1000000000)
-    .max(9999999999)
-    .messages({
-      "string.pattern.base": "Phone number must be a valid 10-digit number",
-    }),
+  phoneNumber: Joi.number().integer().min(1000000000).max(9999999999).messages({
+    "string.pattern.base": "Phone number must be a valid 10-digit number",
+  }),
 });
 
 const validateRequest = (schema) => {
   return (req, res, next) => {
     const { error } = schema.validate(req.body);
     if (error) {
+      logger.error(error);
       return res.status(400).json({ error: error.details[0].message });
     }
     next();

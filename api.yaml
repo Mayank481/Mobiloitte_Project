@@ -1,9 +1,10 @@
 swagger : "2.0"
 info:
   title: "This is Mobiloitte Assignment APi's"
-  description: This is company documentation mode by Mayank Jaggi.
+  description: This is company documentation made by Mayank Jaggi.
   version: 1.0
   contact:
+    name: Mayank Jaggi
     email: jaggi.mayank19@gmail.com
   basePath: "/"
   servers:
