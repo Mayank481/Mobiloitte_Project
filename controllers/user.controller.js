@@ -74,6 +74,10 @@ module.exports.fetchUsers = async (req, res) => {
     const skip = (page - 1) * limit;
 
     const users = await userdata.find().skip(skip).limit(limit);
+    if (users) {
+      await redisSet(users);
+      logger.info("cache User data fetch Successfully");
+    }
     const totalCount = await userdata.countDocuments();
     let nextPageUrl = null;
     if (skip + limit < totalCount) {
