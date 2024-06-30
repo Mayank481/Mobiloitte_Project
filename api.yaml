@@ -10,8 +10,8 @@ info:
   servers:
     -url: "http://localhost:4000/"
     description: This is local server.
-    -url: "http://company.com/"
-    description: This is my company server.
+    -url: "https://www.mobiloitte.com/"
+    description: This is my company website.
 securityDefinitions:
   bearerAuth:
     type: "apiKey"
