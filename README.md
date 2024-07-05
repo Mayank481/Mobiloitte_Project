@@ -77,9 +77,7 @@ Redis is a caching services which allow us to optimize our application in retrie
 ## command 
 ```
 docker run -d --name redis-stack -p 6379:6379 -p 8001:8001 redis/redis-stack:latest
-
 ``` 
-
 
 ## AWS Deployment
 
